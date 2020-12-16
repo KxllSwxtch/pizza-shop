@@ -1,2 +1,3 @@
 import Home from "./Home";
-export { Home };
+import Pizza from "./Pizza";
+export { Home, Pizza };

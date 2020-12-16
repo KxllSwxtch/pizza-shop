@@ -1,26 +1,26 @@
-import uuid from "uuid/dist/v4";
-
 export const data = [
   {
-    id: uuid(),
+    id: 1,
     price: {
       sm: 8.99,
       md: 12.99,
       lg: 16.99,
       xl: 22.49,
     },
-    name: "Margarita",
+    name: "Ortolana",
     imageURL:
       "https://natashaskitchen.com/wp-content/uploads/2020/04/Pizza-Dough-Best-Pizza-Crust-Recipe-3-500x500.jpg",
     ingredients: [
-      "Tomato Sauce",
-      "Parmesan Cheese",
+      "Olive Oil",
+      "Basil",
+      "Zucchini",
+      "Eggplant",
       "Mozarella Cheese",
-      "Sliced Pepperoni",
+      "Tomato Sauce",
     ],
   },
   {
-    id: uuid(),
+    id: 2,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -33,7 +33,7 @@ export const data = [
     ingredients: ["Sliced Tomato", "Tomato Sauce", "Basil", "Grated Mozarella"],
   },
   {
-    id: uuid(),
+    id: 3,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -52,7 +52,7 @@ export const data = [
     ],
   },
   {
-    id: uuid(),
+    id: 4,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -76,7 +76,7 @@ export const data = [
     ],
   },
   {
-    id: uuid(),
+    id: 5,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -95,7 +95,7 @@ export const data = [
     ],
   },
   {
-    id: uuid(),
+    id: 6,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -108,7 +108,7 @@ export const data = [
     ingredients: ["Pizza Sauce", "Cheese", "Cooked Ham", "Pineapple"],
   },
   {
-    id: uuid(),
+    id: 7,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -129,7 +129,7 @@ export const data = [
     ],
   },
   {
-    id: uuid(),
+    id: 8,
     price: {
       sm: 8.99,
       md: 12.99,
@@ -150,5 +150,18 @@ export const data = [
       "Parmesan",
       "Basil",
     ],
+  },
+  {
+    id: 9,
+    price: {
+      sm: 8.99,
+      md: 12.99,
+      lg: 16.99,
+      xl: 22.49,
+    },
+    name: "Americana",
+    imageURL:
+      "https://www.silviocicchi.com/pizzachef/wp-content/uploads/2015/02/a2.jpg",
+    ingredients: ["Cheese", "Tomato Sauce", "Green Pepper", "Red Pepper"],
   },
 ];
