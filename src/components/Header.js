@@ -69,16 +69,17 @@ function Header() {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
-            edge='start'
+            edge="start"
             className={classes.menuButton}
-            color='inherit'
-            aria-label='open drawer'>
+            color="inherit"
+            aria-label="open drawer"
+          >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant='h6' noWrap>
+          <Typography className={classes.title} variant="h6" noWrap>
             Pizza Shop
           </Typography>
           <div className={classes.search}>
@@ -86,7 +87,7 @@ function Header() {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder='Search…'
+              placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
