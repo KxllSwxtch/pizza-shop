@@ -9,10 +9,10 @@ function PizzaList() {
     <Grid
       container
       spacing={5}
-      alignItems='center'
-      component='ul'
-      justify='center'
-      style={{ marginTop: 40 }}
+      alignItems="center"
+      component="ul"
+      justify="center"
+      style={{ marginTop: 40, marginBottom: 40 }}
     >
       {pizzaList.map((data) => (
         <Grid item key={data.id}>
