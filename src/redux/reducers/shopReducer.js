@@ -1,5 +1,5 @@
-import { data } from "../../fakeData";
-import { GET_PIZZA_DETAILS } from "@ActionTypes";
+import { data } from '../../fakeData';
+import { GET_PIZZA_DETAILS } from '@ActionTypes';
 
 const initialState = {
   pizzaList: data,
