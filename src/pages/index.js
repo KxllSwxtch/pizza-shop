@@ -1,4 +1,5 @@
 import Home from './Home';
 import Pizza from './Pizza';
 import Cart from './Cart';
-export { Home, Pizza, Cart };
+import AuthCallback from './AuthCallback';
+export { Home, Pizza, Cart, AuthCallback };
