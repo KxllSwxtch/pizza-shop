@@ -28,9 +28,7 @@ function CartItems({ cartItems }) {
         <TableHead>
           <TableRow>
             <TableCell align="left">Name</TableCell>
-            <TableCell align="left">Size</TableCell>
             <TableCell align="left">Price</TableCell>
-            <TableCell align="right">Quantity</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
