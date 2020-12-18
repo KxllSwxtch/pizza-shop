@@ -6,6 +6,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Login from './Login';
+import withAuth from '@Hocs/withAuth';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -109,6 +111,7 @@ function Header() {
             <Link to="/cart" className={classes.link}>
               <ShoppingCartIcon className={classes.icon} />
             </Link>
+            <Login />
           </div>
         </Toolbar>
       </AppBar>
@@ -116,4 +119,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withAuth(Header);

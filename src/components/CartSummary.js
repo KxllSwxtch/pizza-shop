@@ -21,11 +21,11 @@ function CartSummary() {
   return (
     <div className={classes.root}>
       <Typography variant="h6">
-        <span className={classes.bold}>Total</span>: ${total}
+        <span className={classes.bold}>Total</span>: ${total.toFixed(2)}
       </Typography>
       <Typography variant="h6">
         <span className={classes.bold}>Total (with delivery)</span>: $
-        {total + 13}
+        {(total + 13).toFixed(2)}
       </Typography>
     </div>
   );
