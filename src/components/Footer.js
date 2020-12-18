@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     width: '100%',
   },

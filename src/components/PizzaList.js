@@ -1,8 +1,9 @@
-import Grid from "@material-ui/core/Grid/Grid";
-import { useSelector } from "react-redux";
-import PizzaListItem from "./PIzzaListItem";
+import Grid from '@material-ui/core/Grid/Grid';
+import withAlert from '@Hocs/withAlert';
+import { useSelector } from 'react-redux';
+import PizzaListItem from './PIzzaListItem';
 
-function PizzaList() {
+function PizzaList({ openAlert }) {
   const pizzaList = useSelector((state) => state.shop.pizzaList) || [];
 
   return (
@@ -16,11 +17,11 @@ function PizzaList() {
     >
       {pizzaList.map((data) => (
         <Grid item key={data.id}>
-          <PizzaListItem data={data} />
+          <PizzaListItem data={data} openAlert={openAlert} />
         </Grid>
       ))}
     </Grid>
   );
 }
 
-export default PizzaList;
+export default withAlert(PizzaList);
