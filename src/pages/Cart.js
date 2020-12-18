@@ -2,10 +2,7 @@ import { Container } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import CartItems from '@Components/CartItems';
 import CartSummary from '@Components/CartSummary';
-
-// 4. Delivery costs displayed
-// 5. Continue shopping button
-// 6. Checkout button
+import CartControls from '@Components/CartControls';
 
 function Cart() {
   const cartItems = useSelector((state) => state.shop.cartItems);
@@ -14,6 +11,7 @@ function Cart() {
     <Container>
       <CartItems cartItems={cartItems} />
       <CartSummary />
+      <CartControls />
     </Container>
   );
 }

@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) =>
     },
     link: {
       color: theme.palette.primary.contrastText,
+      textDecoration: 'none',
     },
   }),
 );
@@ -87,7 +88,9 @@ function Header() {
       <AppBar position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Pizza Shop
+            <Link to="/" className={classes.link}>
+              Pizza Shop
+            </Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

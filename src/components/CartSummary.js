@@ -3,6 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles(() => ({
   root: {
     marginBottom: 20,
+    textAlign: 'right',
   },
   bold: {
     fontWeight: 'bold',
@@ -18,7 +19,7 @@ function CartSummary() {
         <span className={classes.bold}>Total</span>: 100$
       </Typography>
       <Typography variant="h6">
-        <span className={classes.bold}>Total with delivery</span>: 113$
+        <span className={classes.bold}>Total (with delivery)</span>: 113$
       </Typography>
     </div>
   );

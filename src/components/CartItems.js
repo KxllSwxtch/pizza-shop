@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     marginTop: 50,
     marginBottom: 20,
   },
-
   table: {
     minWidth: 650,
   },
