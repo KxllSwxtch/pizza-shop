@@ -1,13 +1,16 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.main,
     color: theme.palette.grey.A200,
     height: 70,
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
   },
 }));
 

@@ -1,9 +1,17 @@
 import { Container } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import CartItems from '@Components/CartItems';
+import CartSummary from '@Components/CartSummary';
+import CartControls from '@Components/CartControls';
 
 function Cart() {
+  const cartItems = useSelector((state) => state.shop.cartItems);
+
   return (
     <Container>
-      <h1>Cart page</h1>
+      <CartItems cartItems={cartItems} />
+      <CartSummary />
+      <CartControls />
     </Container>
   );
 }

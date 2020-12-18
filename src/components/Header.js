@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -59,6 +61,22 @@ const useStyles = makeStyles((theme) =>
         },
       },
     },
+    navigation: {
+      marginLeft: 20,
+      display: 'flex',
+      alignItems: 'center',
+    },
+    icon: {
+      cursor: 'pointer',
+      transition: 'transform 300ms ease-out',
+      '&:hover': {
+        transform: 'scale(1.07)',
+      },
+    },
+    link: {
+      color: theme.palette.primary.contrastText,
+      textDecoration: 'none',
+    },
   }),
 );
 
@@ -70,7 +88,9 @@ function Header() {
       <AppBar position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Pizza Shop
+            <Link to="/" className={classes.link}>
+              Pizza Shop
+            </Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -84,6 +104,11 @@ function Header() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
+          </div>
+          <div className={classes.navigation}>
+            <Link to="/cart" className={classes.link}>
+              <ShoppingCartIcon className={classes.icon} />
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
