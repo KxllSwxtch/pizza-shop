@@ -32,8 +32,8 @@ function CartItems({ cartItems }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartItems.map((row) => (
-            <CartItem key={row.id} {...row} />
+          {cartItems.map(({ id, name, price }) => (
+            <CartItem key={id} id={id} name={name} price={price} />
           ))}
         </TableBody>
       </Table>
