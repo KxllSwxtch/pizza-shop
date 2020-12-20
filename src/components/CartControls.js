@@ -2,7 +2,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button/Button';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: 40,
   },
@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
   },
   link: {
     textDecoration: 'none',
+    color: theme.palette.primary.contrastText,
   },
 }));
 
@@ -32,7 +33,9 @@ function CartControls() {
         </Button>
       </Link>
       <Button variant="contained" color="primary">
-        Checkout
+        <Link to="/checkout" className={classes.link}>
+          Checkout
+        </Link>
       </Button>
     </Grid>
   );
