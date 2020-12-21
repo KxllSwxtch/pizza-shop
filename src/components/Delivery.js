@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField/TextField';
-import Button from '@material-ui/core/Button/Button';
 
 const useStyles = makeStyles(
   () => ({
@@ -15,7 +14,14 @@ const useStyles = makeStyles(
   { name: 'Delivery' },
 );
 
-function Delivery() {
+function Delivery({
+  streetName,
+  setStreetName,
+  houseNumber,
+  setHouseNumber,
+  postalCode,
+  setPostalCode,
+}) {
   const classes = useStyles();
 
   return (
@@ -25,16 +31,25 @@ function Delivery() {
         className={classes.input}
         type="text"
         placeholder="Street name"
+        value={streetName}
+        onChange={(e) => setStreetName(e.target.value)}
       />
       <TextField
         required
         className={classes.input}
         type="text"
         placeholder="House number"
+        value={houseNumber}
+        onChange={(e) => setHouseNumber(e.target.value)}
       />
-      <Button variant="contained" color="primary">
-        Place order
-      </Button>
+      <TextField
+        required
+        className={classes.input}
+        type="text"
+        placeholder="Postal Code"
+        value={postalCode}
+        onChange={(e) => setPostalCode(e.target.value)}
+      />
     </form>
   );
 }
