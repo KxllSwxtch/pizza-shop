@@ -1,14 +1,24 @@
 import { data } from '../../fakeData';
-import { GET_PIZZA_DETAILS, ADD_TO_CART, DELETE_ITEM } from '@ActionTypes';
+import {
+  GET_PIZZA_DETAILS,
+  ADD_TO_CART,
+  DELETE_ITEM,
+  SWITCH_CURRENCY,
+} from '@ActionTypes';
 
 const initialState = {
   pizzaList: data,
   pizza: null,
   cartItems: [],
+  currentCurrency: 'USD',
 };
 
 function shopReducer(state = initialState, action) {
   switch (action.type) {
+    case SWITCH_CURRENCY:
+      const { currentCurrency } = action;
+      return { ...state, currentCurrency };
+
     case DELETE_ITEM:
       const cartItems = [...state.cartItems].filter(
         (item) => item.id !== action.itemID,

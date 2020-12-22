@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { GET_PIZZA_DETAILS, ADD_TO_CART } from '@ActionTypes';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 function PizzaListItem({ data, openAlert }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const currentCurrency = useSelector((state) => state.shop.currentCurrency);
   const { id, imageURL, name, price } = data;
 
   const handleAddToCart = () => {
