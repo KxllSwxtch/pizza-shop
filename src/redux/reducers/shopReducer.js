@@ -39,9 +39,9 @@ function shopReducer(state = initialState, action) {
       return { ...state, currentCurrency };
 
     case DELETE_ITEM:
-      const cartItems = [...state.cartItems].filter(
-        (item) => item.id !== action.itemID,
-      );
+      const { itemID } = action;
+      const cartItems = [...state.cartItems];
+      cartItems.splice(itemID, 1);
       return { ...state, cartItems };
 
     case ADD_TO_CART:

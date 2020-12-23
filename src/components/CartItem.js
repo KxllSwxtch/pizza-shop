@@ -22,7 +22,7 @@ const useStyles = makeStyles(
   { name: 'CartItem' },
 );
 
-function CartItem({ id, name, price }) {
+function CartItem({ name, price, index }) {
   const [currentAmount, setAmount] = React.useState(1);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -30,7 +30,8 @@ function CartItem({ id, name, price }) {
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
-  const handleDelete = () => dispatch({ type: DELETE_ITEM, itemID: id });
+
+  const handleDelete = () => dispatch({ type: DELETE_ITEM, itemID: index });
 
   return (
     <TableRow>
