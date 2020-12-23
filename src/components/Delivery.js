@@ -15,10 +15,8 @@ const useStyles = makeStyles(
 );
 
 function Delivery({
-  streetName,
-  setStreetName,
-  houseNumber,
-  setHouseNumber,
+  streetAddress,
+  setStreetAddress,
   postalCode,
   setPostalCode,
 }) {
@@ -27,20 +25,13 @@ function Delivery({
   return (
     <form autoComplete="off" className={classes.root}>
       <TextField
+        autoFocus
         required
         className={classes.input}
         type="text"
-        placeholder="Street name"
-        value={streetName}
-        onChange={(e) => setStreetName(e.target.value)}
-      />
-      <TextField
-        required
-        className={classes.input}
-        type="text"
-        placeholder="House number"
-        value={houseNumber}
-        onChange={(e) => setHouseNumber(e.target.value)}
+        placeholder="Shipping Address"
+        value={streetAddress}
+        onChange={(e) => setStreetAddress(e.target.value)}
       />
       <TextField
         required

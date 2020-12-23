@@ -26,6 +26,9 @@ function CheckoutItems() {
   const checkoutItems = useSelector((state) => state.shop.cartItems);
   const classes = useStyles();
 
+  let total = 0;
+  for (const item of checkoutItems) total += item.price;
+
   return (
     <React.Fragment>
       <Typography variant="h4" className={classes.title}>
@@ -37,6 +40,7 @@ function CheckoutItems() {
         ))}
       </ul>
       <Divider light variant="fullWidth" />
+      <Typography variant="h5">Total: ${(total + 13).toFixed(2)}</Typography>
     </React.Fragment>
   );
 }
