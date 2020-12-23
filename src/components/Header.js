@@ -1,3 +1,5 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,6 +9,7 @@ import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import withAuth from '@Hocs/withAuth';
+import { CHANGE_SEARCH_VALUE } from '@ActionTypes';
 import Login from './Login';
 import CurrencySelect from './CurrencySelect';
 
@@ -85,7 +88,12 @@ const useStyles = makeStyles((theme) =>
 );
 
 function Header() {
+  const searchValue = useSelector((state) => state.shop.searchValue);
+  const dispatch = useDispatch();
   const classes = useStyles();
+
+  const handleChange = (e) =>
+    dispatch({ type: CHANGE_SEARCH_VALUE, searchValue: e.target.value });
 
   return (
     <div className={classes.root}>
@@ -102,6 +110,8 @@ function Header() {
               <SearchIcon />
             </div>
             <InputBase
+              value={searchValue}
+              onChange={handleChange}
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
