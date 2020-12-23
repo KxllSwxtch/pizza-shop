@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 function PizzaListItem({ data, openAlert }) {
   const { id, imageURL, name, price } = data;
 
-  const [currentPrice, setPrice] = React.useState(price);
   const currentCurrency = useSelector((state) => state.shop.currentCurrency);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -48,7 +47,7 @@ function PizzaListItem({ data, openAlert }) {
   };
 
   const formattedPrice = (
-    <CurrencyConverter from="USD" to={currentCurrency} value={currentPrice} />
+    <CurrencyConverter from="USD" to={currentCurrency} value={price} />
   );
 
   return (
