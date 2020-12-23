@@ -6,8 +6,9 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Login from './Login';
 import withAuth from '@Hocs/withAuth';
+import Login from './Login';
+import CurrencySelect from './CurrencySelect';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -79,6 +80,7 @@ const useStyles = makeStyles((theme) =>
       color: theme.palette.primary.contrastText,
       textDecoration: 'none',
     },
+    currencyButton: {},
   }),
 );
 
@@ -94,6 +96,7 @@ function Header() {
               Pizza Shop
             </Link>
           </Typography>
+          <CurrencySelect />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

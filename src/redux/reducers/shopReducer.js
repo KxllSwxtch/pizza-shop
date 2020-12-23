@@ -6,6 +6,7 @@ import {
   PLACE_ORDER,
   PLACE_ORDER_LOADING,
   CLEAR_CART,
+  SWITCH_CURRENCY,
 } from '@ActionTypes';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   pizza: null,
   cartItems: [],
   isLoading: false,
+  currentCurrency: 'USD',
 };
 
 function shopReducer(state = initialState, action) {
@@ -25,6 +27,10 @@ function shopReducer(state = initialState, action) {
 
     case PLACE_ORDER:
       return { ...state, isLoading: false };
+      
+    case SWITCH_CURRENCY:
+      const { currentCurrency } = action;
+      return { ...state, currentCurrency };
 
     case DELETE_ITEM:
       const cartItems = [...state.cartItems].filter(
