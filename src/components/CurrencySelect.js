@@ -28,7 +28,11 @@ function CurrencySelect() {
 
   return (
     <FormControl className={classes.root}>
-      <Select value={currentCurrency} onChange={handleCurrencyChange}>
+      <Select
+        defaultValue="USD"
+        value={currentCurrency}
+        onChange={handleCurrencyChange}
+      >
         <MenuItem className={classes.menuItem} value="USD">
           USD
         </MenuItem>

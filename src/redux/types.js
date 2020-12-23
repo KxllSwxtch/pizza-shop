@@ -1,5 +1,6 @@
 export const GET_PIZZA_DETAILS = 'GET_PIZZA_DETAILS';
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const PLACE_ORDER = 'PLACE_ORDER';
 export const PLACE_ORDER_LOADING = 'PLACE_ORDER_LOADING';
