@@ -10,13 +10,13 @@ const useStyles = makeStyles(
   { name: 'CheckoutItem' },
 );
 
-function CheckoutItem({ name, price }) {
+function CheckoutItem({ name, price, quantity }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Typography variant="body1">{name}</Typography>
-      <Typography variant="body2">{price}</Typography>
+      <Typography variant="body2">{(price * quantity).toFixed(2)}</Typography>
     </div>
   );
 }

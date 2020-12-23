@@ -16,7 +16,7 @@ function CartSummary() {
   const cartItems = useSelector((state) => state.shop.cartItems);
 
   let total = 0;
-  cartItems.map((item) => (total += item.price));
+  cartItems.map((item) => (total += item.price * item.quantity));
 
   return (
     <div className={classes.root}>
