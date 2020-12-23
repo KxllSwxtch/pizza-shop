@@ -3,6 +3,9 @@
   "license": "MIT",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.15.3"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
