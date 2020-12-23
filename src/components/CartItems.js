@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid/dist/v4';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -33,8 +34,8 @@ function CartItems({ cartItems }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartItems.map(({ id, name, price }) => (
-            <CartItem key={name} id={id} name={name} price={price} />
+          {cartItems.map(({ name, price }, index) => (
+            <CartItem key={uuid()} index={index} name={name} price={price} />
           ))}
         </TableBody>
       </Table>
