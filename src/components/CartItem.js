@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell/TableCell';
 import TableRow from '@material-ui/core/TableRow/TableRow';
 import { useDispatch } from 'react-redux';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { DELETE_ITEM } from '@ActionTypes';
+import { DELETE_ITEM, INCREASE_QUANTITY } from '@ActionTypes';
 import withAlert from '@Hocs/withAlert';
 
 const useStyles = makeStyles(
@@ -22,13 +22,18 @@ const useStyles = makeStyles(
   { name: 'CartItem' },
 );
 
-function CartItem({ name, price, index }) {
-  const [currentAmount, setAmount] = React.useState(1);
+function CartItem({ name, price, quantity, index }) {
+  const [currentAmount, setAmount] = React.useState(quantity);
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
+    dispatch({
+      type: INCREASE_QUANTITY,
+      itemIndex: index,
+      quantity: currentAmount,
+    });
   };
 
   const handleDelete = () => dispatch({ type: DELETE_ITEM, itemID: index });
@@ -43,7 +48,7 @@ function CartItem({ name, price, index }) {
         />
       </TableCell>
       <TableCell scope="row">{name}</TableCell>
-      <TableCell align="left">{price}</TableCell>
+      <TableCell align="left">{(price * quantity).toFixed(2)}</TableCell>
       <TableCell align="right">
         <Tooltip title="Delete" placement="left">
           <DeleteIcon

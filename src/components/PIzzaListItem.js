@@ -39,7 +39,7 @@ function PizzaListItem({ data, openAlert }) {
   const { id, imageURL, name, price } = data;
 
   const handleAddToCart = () => {
-    const cartItem = { id, name, price };
+    const cartItem = { id, name, price, quantity: 1 };
     dispatch({ type: ADD_TO_CART, cartItem });
     openAlert('Item added to cart');
   };

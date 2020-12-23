@@ -34,8 +34,8 @@ function CartItems({ cartItems }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartItems.map(({ name, price }, index) => (
-            <CartItem key={uuid()} index={index} name={name} price={price} />
+          {cartItems.map((item, index) => (
+            <CartItem key={uuid()} index={index} {...item} />
           ))}
         </TableBody>
       </Table>

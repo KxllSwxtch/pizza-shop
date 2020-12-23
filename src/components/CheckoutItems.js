@@ -27,7 +27,7 @@ function CheckoutItems() {
   const classes = useStyles();
 
   let total = 0;
-  for (const item of checkoutItems) total += item.price;
+  for (const item of checkoutItems) total += item.price * item.quantity;
 
   return (
     <React.Fragment>
@@ -35,8 +35,8 @@ function CheckoutItems() {
         Items
       </Typography>
       <ul className={classes.list}>
-        {checkoutItems.map(({ name, price }, index) => (
-          <CheckoutItem key={index} name={name} price={price} />
+        {checkoutItems.map((item, index) => (
+          <CheckoutItem key={index} {...item} />
         ))}
       </ul>
       <Divider light variant="fullWidth" />
