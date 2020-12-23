@@ -36,8 +36,14 @@ function CurrencySelect() {
         <MenuItem className={classes.menuItem} value="USD">
           USD
         </MenuItem>
+        <MenuItem className={classes.menuItem} value="CAD">
+          CAD
+        </MenuItem>
         <MenuItem className={classes.menuItem} value="RUB">
           RUB
+        </MenuItem>
+        <MenuItem className={classes.menuItem} value="INR">
+          INR
         </MenuItem>
       </Select>
     </FormControl>

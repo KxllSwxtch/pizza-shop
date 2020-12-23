@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrencyConverter from 'react-currency-conv';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -33,16 +34,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PizzaListItem({ data, openAlert }) {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const currentCurrency = useSelector((state) => state.shop.currentCurrency);
   const { id, imageURL, name, price } = data;
+
+  const currentCurrency = useSelector((state) => state.shop.currentCurrency);
+  const dispatch = useDispatch();
+  const classes = useStyles();
 
   const handleAddToCart = () => {
     const cartItem = { id, name, price, quantity: 1 };
     dispatch({ type: ADD_TO_CART, cartItem });
     openAlert('Item added to cart');
   };
+
+  const formattedPrice = (
+    <CurrencyConverter from="USD" to={currentCurrency} value={price} />
+  );
 
   return (
     <Card className={classes.root} elevation={6}>
@@ -58,7 +64,7 @@ function PizzaListItem({ data, openAlert }) {
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Price: ${price}
+            Price: {formattedPrice}
           </Typography>
         </CardContent>
       </CardActionArea>
