@@ -27,6 +27,7 @@ function CartItems({ cartItems }) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
+            <TableCell align="left">Amount</TableCell>
             <TableCell align="left">Name</TableCell>
             <TableCell align="left">Price</TableCell>
           </TableRow>

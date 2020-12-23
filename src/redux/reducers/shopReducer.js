@@ -7,6 +7,7 @@ import {
   PLACE_ORDER_LOADING,
   CLEAR_CART,
   SWITCH_CURRENCY,
+  UPDATE_CART_ITEM,
 } from '@ActionTypes';
 
 const initialState = {
@@ -19,6 +20,11 @@ const initialState = {
 
 function shopReducer(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_CART_ITEM:
+      const { cartItemIndex } = action;
+      const updatedCartItem = {};
+      return { ...state, cartItems: [...cartItems, updatedCartItem] };
+
     case CLEAR_CART:
       return { ...state, cartItems: [] };
 
@@ -27,7 +33,7 @@ function shopReducer(state = initialState, action) {
 
     case PLACE_ORDER:
       return { ...state, isLoading: false };
-      
+
     case SWITCH_CURRENCY:
       const { currentCurrency } = action;
       return { ...state, currentCurrency };
