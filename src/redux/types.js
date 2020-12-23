@@ -1,4 +1,7 @@
 export const GET_PIZZA_DETAILS = 'GET_PIZZA_DETAILS';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const PLACE_ORDER = 'PLACE_ORDER';
+export const PLACE_ORDER_LOADING = 'PLACE_ORDER_LOADING';
+export const CLEAR_CART = 'CLEAR_CART';
 export const SWITCH_CURRENCY = 'SWITCH_CURRENCY';

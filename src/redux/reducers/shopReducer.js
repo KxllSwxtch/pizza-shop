@@ -3,6 +3,9 @@ import {
   GET_PIZZA_DETAILS,
   ADD_TO_CART,
   DELETE_ITEM,
+  PLACE_ORDER,
+  PLACE_ORDER_LOADING,
+  CLEAR_CART,
   SWITCH_CURRENCY,
 } from '@ActionTypes';
 
@@ -10,11 +13,21 @@ const initialState = {
   pizzaList: data,
   pizza: null,
   cartItems: [],
+  isLoading: false,
   currentCurrency: 'USD',
 };
 
 function shopReducer(state = initialState, action) {
   switch (action.type) {
+    case CLEAR_CART:
+      return { ...state, cartItems: [] };
+
+    case PLACE_ORDER_LOADING:
+      return { ...state, isLoading: true };
+
+    case PLACE_ORDER:
+      return { ...state, isLoading: false };
+      
     case SWITCH_CURRENCY:
       const { currentCurrency } = action;
       return { ...state, currentCurrency };
