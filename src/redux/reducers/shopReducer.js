@@ -8,6 +8,7 @@ import {
   CLEAR_CART,
   SWITCH_CURRENCY,
   INCREASE_QUANTITY,
+  DECREASE_QUANTITY,
   CHANGE_SEARCH_VALUE,
 } from '@ActionTypes';
 
@@ -26,8 +27,14 @@ function shopReducer(state = initialState, action) {
       const { searchValue } = action;
       return { ...state, searchValue };
 
+    case DECREASE_QUANTITY:
+      var { itemIndex } = action;
+      var cartItems = [...state.cartItems];
+      if (cartItems[itemIndex].quantity > 1) cartItems[itemIndex].quantity -= 1;
+      return { ...state, cartItems };
+
     case INCREASE_QUANTITY:
-      const { itemIndex } = action;
+      var { itemIndex } = action;
       var cartItems = [...state.cartItems];
       cartItems[itemIndex].quantity += 1;
       return { ...state, cartItems };
