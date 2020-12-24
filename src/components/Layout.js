@@ -1,4 +1,5 @@
 import React from 'react';
+import withAuth from '@Hocs/withAuth';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -12,4 +13,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default withAuth(Layout);

@@ -9,7 +9,6 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import withAuth from '@Hocs/withAuth';
 import { CHANGE_SEARCH_VALUE } from '@ActionTypes';
 import Login from './Login';
 import CurrencySelect from './CurrencySelect';
@@ -141,4 +140,4 @@ function Header() {
   );
 }
 
-export default withAuth(Header);
+export default Header;
