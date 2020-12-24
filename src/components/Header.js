@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
@@ -88,12 +89,18 @@ const useStyles = makeStyles((theme) =>
 );
 
 function Header() {
+  const [isMainPage, setIsMainPage] = React.useState(false);
   const searchValue = useSelector((state) => state.shop.searchValue);
+  const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const handleChange = (e) =>
     dispatch({ type: CHANGE_SEARCH_VALUE, searchValue: e.target.value });
+
+  React.useEffect(() => {
+    if (history.location.pathname === '/') setIsMainPage(true);
+  }, [history]);
 
   return (
     <div className={classes.root}>
@@ -105,21 +112,23 @@ function Header() {
             </Link>
           </Typography>
           <CurrencySelect />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          {isMainPage && (
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                value={searchValue}
+                onChange={handleChange}
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
-            <InputBase
-              value={searchValue}
-              onChange={handleChange}
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+          )}
           <div className={classes.navigation}>
             <Link to="/cart" className={classes.link}>
               <ShoppingCartIcon className={classes.icon} />

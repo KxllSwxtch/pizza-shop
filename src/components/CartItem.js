@@ -13,6 +13,7 @@ import {
   DECREASE_QUANTITY,
 } from '@ActionTypes';
 import withAlert from '@Hocs/withAlert';
+import FormattedCurrency from './FormattedCurrency';
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -82,7 +83,9 @@ function CartItem({ name, price, quantity, index }) {
         </Button>
       </TableCell>
       <TableCell scope="row">{name}</TableCell>
-      <TableCell align="left">{(price * quantity).toFixed(2)}</TableCell>
+      <TableCell align="left">
+        <FormattedCurrency value={price * quantity} />
+      </TableCell>
       <TableCell align="right">
         <Tooltip title="Delete" placement="left">
           <DeleteIcon
