@@ -1,5 +1,4 @@
 import React from 'react';
-import CurrencyConverter from 'react-currency-conv';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -9,8 +8,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { GET_PIZZA_DETAILS, ADD_TO_CART } from '@ActionTypes';
+import FormattedCurrency from './FormattedCurrency';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 function PizzaListItem({ data, openAlert }) {
   const { id, imageURL, name, price } = data;
 
-  const currentCurrency = useSelector((state) => state.shop.currentCurrency);
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -45,10 +44,6 @@ function PizzaListItem({ data, openAlert }) {
     dispatch({ type: ADD_TO_CART, cartItem });
     openAlert('Item added to cart');
   };
-
-  const formattedPrice = (
-    <CurrencyConverter from="USD" to={currentCurrency} value={price} />
-  );
 
   return (
     <Card className={classes.root} elevation={6}>
@@ -64,7 +59,7 @@ function PizzaListItem({ data, openAlert }) {
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Price: {formattedPrice}
+            Price: <FormattedCurrency value={price} />
           </Typography>
         </CardContent>
       </CardActionArea>

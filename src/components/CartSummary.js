@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import FormattedCurrency from './FormattedCurrency';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,11 +22,22 @@ function CartSummary() {
   return (
     <div className={classes.root}>
       <Typography variant="h6">
-        <span className={classes.bold}>Total</span>: ${total.toFixed(2)}
+        <Typography component="span" className={classes.bold}>
+          Total
+        </Typography>
+        :{' '}
+        <Typography component="span">
+          <FormattedCurrency value={total} />
+        </Typography>
       </Typography>
       <Typography variant="h6">
-        <span className={classes.bold}>Total (with delivery)</span>: $
-        {(total + 13).toFixed(2)}
+        <Typography component="span" className={classes.bold}>
+          Total (with delivery)
+        </Typography>
+        :{' '}
+        <Typography component="span">
+          <FormattedCurrency value={total + 13} />
+        </Typography>
       </Typography>
     </div>
   );
