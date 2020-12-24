@@ -6,18 +6,17 @@ import { Auth0 } from 'react-use-auth/auth0';
 function withAuth(WrappedComponent) {
   return (props) => {
     const history = useHistory();
-
     return (
       <React.Fragment>
         <AuthConfig
           authProvider={Auth0}
-          navigate={(url) => history.push(url)}
+          navigate={history.push}
           params={{
             domain: 'dmitriyshinio.auth0.com',
             clientID: 'JIiiTgYGBD6X4dnxzFa3g75H6rNP5eTX',
           }}
         />
-        <WrappedComponent {...props} />;
+        <WrappedComponent {...props} />
       </React.Fragment>
     );
   };
